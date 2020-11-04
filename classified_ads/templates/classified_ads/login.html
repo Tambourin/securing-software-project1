@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+      <title>Classified ads</title>
+    </head>
+
+    <body>
+		  <h1>Login</h1>
+      <form method="POST" action="/dologin">
+        {% csrf_token %}
+        <label for="username">Username:</span><br/>
+        <input name="username" /> <br/>
+        <label for="password">Password:</span><br/>
+        <input name="password" /> <br/>
+        <input type="submit" value="Login"/>
+      </form>
+    </body>
+
+
+    </body>
+</html>

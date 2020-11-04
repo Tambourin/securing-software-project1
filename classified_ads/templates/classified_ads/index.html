@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title>Classified ads</title>
+    </head>
+
+    <body>
+    <p>logged in as {{user}}</p>
+    <a href="/newpassword"> <button>Set new password</button> </a>
+		<h1>Classified ads</h1>
+
+    <list>         
+			{% for ad in ads %}		
+			<li style="text-align:left">{{ad.text |safe}}</li>
+			{% endfor %}
+    </list>
+
+        <h2>Add new ad</h2>
+
+        <form method="POST" action="/add">
+			{% csrf_token %}
+            <label for="new_ad">Text:</span><br/>
+            <textarea type="text_area" name="new_ad"></textarea> <br/>
+            <input type="submit" value="Add!"/>
+        </form>
+    </body>
+
+
+    </body>
+</html>

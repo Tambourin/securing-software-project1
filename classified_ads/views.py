@@ -25,12 +25,22 @@ def loginView(request):
 def login(request):
   username = request.POST.get('username')
   password = request.POST.get('password')
-  user = PoorUser.objects.get(username = username)
-  request.session['user'] = user.username
-  if(user.password == password):
-    return redirect('/')
-  else: 
-    return redirect('/login')
+  try:    
+    user = PoorUser.objects.get(username = username)
+    print(user.password)
+    if(user.password == password):
+      request.session['user'] = user.username
+      print("Success")   
+      return redirect('/')
+  except:
+    print("Failure") 
+  
+  return redirect('/login')
+  
+  
+  
+    
+   
 
 def newPassword(request):
   return render(request, 'classified_ads/new_password.html', { 'user': request.session['user'] })
